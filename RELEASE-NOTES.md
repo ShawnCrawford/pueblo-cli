@@ -1,11 +1,11 @@
-# Pueblo CLI 0.1.0
+# Pueblo CLI 0.2.0
 
-First public binary release of the notarized universal macOS CLI companion.
+Universal, signed, Apple-notarized macOS release for Apple silicon and Intel.
 
-- Authenticated local connection to the open Pueblo app.
-- List, search, and show supported CRM records; create journal entries.
-- Per-user installation, upgrade rollback, and uninstall scripts.
+- Read lists and details for clients, contacts, leads, engagements, and journal entries; search supported record types.
+- Create and edit clients, contacts, engagements, and journal user notes using Pueblo's app-owned validation and relationship logic.
+- Preserve authenticated communication with the running Pueblo app; no direct database or CloudKit access.
+- Include per-user installation, upgrade rollback, and uninstall scripts.
 - Pairing codes expire after five minutes and are not echoed in Terminal.
-- No direct database or CloudKit access from the CLI.
 
-The package does not support editing or deleting CRM records. `todo list` is unavailable. Keep Pueblo open while using the CLI.
+Leads are read-only. Delete operations and `todo list` are unsupported. The new create/edit operations require a compatible Pueblo macOS app release with the 0.2.0 service protocol. See [installation and compatibility details](INSTALL.md).

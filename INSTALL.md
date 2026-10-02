@@ -1,6 +1,6 @@
 # Install Pueblo CLI
 
-1. Download `pueblo-cli-0.3.1-macos-universal.zip` and `SHA256SUMS` from the [latest release](https://github.com/ShawnCrawford/pueblo-cli/releases/latest). The package supports Apple silicon and Intel Macs.
+1. Download `pueblo-cli-0.4.0-macos-universal.zip` and `SHA256SUMS` from the [latest release](https://github.com/ShawnCrawford/pueblo-cli/releases/latest). The package supports Apple silicon and Intel Macs.
 2. In Terminal, go to the folder containing both downloads and verify the ZIP:
 
    ```sh
@@ -12,8 +12,8 @@
 3. Extract the ZIP and run its per-user installer:
 
    ```sh
-   unzip pueblo-cli-0.3.1-macos-universal.zip
-   cd PuebloCLI-0.3.1
+   unzip pueblo-cli-0.4.0-macos-universal.zip
+   cd PuebloCLI-0.4.0
    ./install.sh
    ```
 
@@ -35,6 +35,6 @@ Run `./install.sh --rollback` from the extracted package folder to restore the p
 
 ## Supported commands and data boundary
 
-Pueblo CLI sends authenticated requests to the open Pueblo app. It does not access SwiftData or CloudKit directly. Version 0.3.1 supports list, search, and detail reads for clients, contacts, leads, engagements, and journal entries; create and edit for supported records; and checklist item list, add, update, complete, reopen, and delete commands. Checklist deletion applies to one checklist item UUID only; CRM entity deletion is unavailable. Pueblo remains responsible for field validation, persistence, and relationship integrity.
+Pueblo CLI sends authenticated requests to the open Pueblo app. It does not access SwiftData or CloudKit directly. Version 0.4.0 supports list, search, and detail reads for clients, contacts, leads, engagements, and journal entries; create and edit for clients, contacts, leads, engagements, and journal notes; checklist operations; bounded batch edits with dry-run; and preview-confirm deletion of CRM entities addressed by explicit stable UUIDs. Obtain user authorization before invoking delete confirmation; a preview token confirms its scope, not user consent. Pueblo remains responsible for field validation, persistence, deletion effects, and relationship integrity.
 
-Checklist commands require a compatible Pueblo macOS app build containing the checklist CLI service. Earlier builds keep their existing supported CLI operations and return `feature_unavailable` for checklist commands. Update Pueblo before using `pueblo todo`.
+Checklist commands and the 0.4.0 Lead, batch-edit, and entity-delete operations require a compatible Pueblo macOS app build containing the matching CLI services. Earlier builds keep their existing supported operations and return `feature_unavailable` for unsupported commands. Update Pueblo before using these newer operations.

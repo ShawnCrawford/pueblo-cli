@@ -1,6 +1,6 @@
 # Install Pueblo CLI
 
-1. Download `pueblo-cli-0.2.0-macos-universal.zip` and `SHA256SUMS` from the [latest release](https://github.com/ShawnCrawford/pueblo-cli/releases/latest). The package supports Apple silicon and Intel Macs.
+1. Download `pueblo-cli-0.3.0-macos-universal.zip` and `SHA256SUMS` from the [latest release](https://github.com/ShawnCrawford/pueblo-cli/releases/latest). The package supports Apple silicon and Intel Macs.
 2. In Terminal, go to the folder containing both downloads and verify the ZIP:
 
    ```sh
@@ -12,8 +12,8 @@
 3. Extract the ZIP and run its per-user installer:
 
    ```sh
-   unzip pueblo-cli-0.2.0-macos-universal.zip
-   cd PuebloCLI-0.2.0
+   unzip pueblo-cli-0.3.0-macos-universal.zip
+   cd PuebloCLI-0.3.0
    ./install.sh
    ```
 
@@ -35,6 +35,6 @@ Run `./install.sh --rollback` from the extracted package folder to restore the p
 
 ## Supported commands and data boundary
 
-Pueblo CLI sends authenticated requests to the open Pueblo app. It does not access SwiftData or CloudKit directly. Version 0.2.0 supports list, search, and detail reads for clients, contacts, leads, engagements, and journal entries. It supports create and edit for clients, contacts, engagements, and journal user notes. Leads are read-only. There is no delete operation, and `todo list` is unavailable.
+Pueblo CLI sends authenticated requests to the open Pueblo app. It does not access SwiftData or CloudKit directly. Version 0.3.0 supports list, search, and detail reads for clients, contacts, leads, engagements, and journal entries; create and edit for supported records; and checklist item list, add, update, complete, reopen, and delete commands. Checklist deletion applies to one checklist item UUID only; CRM entity deletion is unavailable. Pueblo remains responsible for field validation, persistence, and relationship integrity.
 
-The new create/edit commands require a compatible Pueblo macOS app release containing the 0.2.0 service protocol. Until then, existing supported CLI commands remain available and newer operations may be rejected as unavailable. Pueblo remains responsible for field validation and relationship integrity. Only the running app writes its own store.
+Checklist commands require a compatible Pueblo macOS app build containing the checklist CLI service. Earlier builds keep their existing supported CLI operations and return `feature_unavailable` for checklist commands. Update Pueblo before using `pueblo todo`.
